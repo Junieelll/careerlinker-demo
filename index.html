@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerLinker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="careerlinker-logo.png" type="image/x-icon">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            green: {
+              50:  '#f0fdf6',
+              100: '#dcfce8',
+              200: '#bbf7d1',
+              300: '#86efad',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            }
+          },
+          fontFamily: {
+            sans: ['DM Sans', 'sans-serif'],
+            serif: ['Instrument Serif', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ── Header ──────────────────────────────────────────── -->
+  <header id="app-header"></header>
+
+  <!-- ── Sidebar ─────────────────────────────────────────── -->
+  <aside id="app-sidebar"></aside>
+
+  <!-- ── Page content ────────────────────────────────────── -->
+  <main id="app-main"></main>
+
+  <!-- ── Job detail drawer ───────────────────────────────── -->
+  <div id="job-drawer"></div>
+
+  <!-- ── Mobile sidebar backdrop ────────────────────────── -->
+  <div id="sidebar-backdrop" onclick="CL.toggleSidebar()"></div>
+
+  <!-- ── Toast ───────────────────────────────────────────── -->
+  <div id="toast-container"></div>
+
+  <!-- Load order matters: data → icons → components → pages → router → app -->
+  <script src="js/data.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/pages/home.js"></script>
+  <script src="js/pages/applied.js"></script>
+  <script src="js/pages/saved.js"></script>
+  <script src="js/pages/profile.js"></script>
+  <script src="js/pages/messages.js"></script>
+  <script src="js/pages/resume.js"></script>
+  <script src="js/pages/settings.js"></script>
+  <script src="js/pages/emp-dashboard.js"></script>
+  <script src="js/pages/emp-post.js"></script>
+  <script src="js/pages/emp-jobs.js"></script>
+  <script src="js/pages/emp-applicants.js"></script>
+  <script src="js/pages/emp-messages.js"></script>
+  <script src="js/pages/notifications.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
