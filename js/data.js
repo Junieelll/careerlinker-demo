@@ -9,7 +9,7 @@ window.CL.data = {
     email:   'cardenas.juniel.permito@gmail.com',
     phone:   '+63 912 345 6789',
     location:'Quezon City, Metro Manila',
-    avatar:  '../pfp.jfif',
+    avatar:  '/pfp.jfif',
     summary: 'Passionate frontend developer with 3 years of experience building responsive web apps using Vue.js and React. I value clean code, great UX, and continuous learning.',
     skills:  ['Vue.js','React','TypeScript','Tailwind CSS','PHP / Laravel','MySQL','Git','Figma'],
     completion: 82,
