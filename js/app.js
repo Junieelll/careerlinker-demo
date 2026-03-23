@@ -15,7 +15,7 @@ function renderHeader() {
     <!-- Logo -->
     <a class="flex items-center gap-2 mr-3 cursor-pointer flex-shrink-0" onclick="CL.navigate(CL.state.role==='employer'?'emp-dashboard':'home')">
       <div class="w-9 h-9 flex items-center justify-center">
-        <img src="/careerlinker-logo.png" alt="" />
+        <img src="./careerlinker-logo.png" alt="" />
       </div>
       <span class="hidden sm:inline font-bold text-slate-900 text-[15px] tracking-tight">CareerLinker</span>
     </a>
