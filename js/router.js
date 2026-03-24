@@ -51,11 +51,20 @@ CL.setRole = function(role) {
     el.style.display = el.dataset.role === role ? '' : 'none';
   });
 
-  // Update header display name and role
-  const nameEl = document.getElementById('hdr-name');
-  const roleEl = document.getElementById('hdr-role');
-  if (nameEl) nameEl.textContent = isEmp ? 'TechBridge PH' : 'Juniel Santos';
-  if (roleEl) roleEl.textContent = isEmp ? 'Employer' : 'Job Seeker';
+  // Update sidebar profile name and role label
+  const sidebarName      = document.getElementById('sidebar-name');
+  const sidebarRole      = document.getElementById('sidebar-role');
+  const sidebarPopupName = document.getElementById('sidebar-popup-name');
+  const sidebarPopupRole = document.getElementById('sidebar-popup-role');
+  const displayName = isEmp ? 'TechBridge PH' : (CL.data?.currentUser?.name || 'Juniel Santos');
+  const displayRole = isEmp ? 'Employer' : 'Job Seeker';
+  if (sidebarName)      sidebarName.textContent      = displayName;
+  if (sidebarRole)      sidebarRole.textContent      = displayRole;
+  if (sidebarPopupName) sidebarPopupName.textContent = displayName;
+  if (sidebarPopupRole) sidebarPopupRole.textContent = displayRole;
+
+  // Close sidebar user menu if open
+  CL.closeSidebarUserMenu?.();
 
   // Animate role slider
   const slider  = document.getElementById('role-slider');

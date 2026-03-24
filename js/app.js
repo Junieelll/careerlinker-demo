@@ -15,7 +15,7 @@ function renderHeader() {
     <!-- Logo -->
     <a class="flex items-center gap-2 mr-3 cursor-pointer flex-shrink-0" onclick="CL.navigate(CL.state.role==='employer'?'emp-dashboard':'home')">
       <div class="w-9 h-9 flex items-center justify-center">
-        <img src="./careerlinker-logo.png" alt="" />
+        <img src="../careerlinker-logo.png" alt="" />
       </div>
       <span class="hidden sm:inline font-bold text-slate-900 text-[15px] tracking-tight">CareerLinker</span>
     </a>
@@ -33,9 +33,8 @@ function renderHeader() {
       </div>
     </div>
 
-    <!-- Right side -->
+    <!-- Right side: notification bell only -->
     <div class="flex items-center gap-2 flex-shrink-0">
-      <!-- Notification -->
       <div class="relative flex-shrink-0" id="notif-menu-wrap">
         <button class="icon-btn relative" onclick="CL.toggleNotifMenu(event)">
           ${CL.icon('bell','w-5 h-5')}
@@ -47,15 +46,12 @@ function renderHeader() {
           class="absolute right-0 mt-2 w-80 rounded-xl bg-white shadow-lg ring-1 ring-slate-200 overflow-hidden z-50"
           style="display:none; opacity:0; transform:translateY(-6px); transition: opacity 0.18s ease, transform 0.18s ease;">
 
-          <!-- Header -->
           <div class="px-4 py-3 border-b border-slate-100 flex items-center justify-between">
             <span class="text-[13px] font-semibold text-slate-800">Notifications</span>
             <button class="text-[11px] text-green-600 font-medium hover:text-green-700 transition-colors" onclick="CL.markAllRead()">Mark all as read</button>
           </div>
 
-          <!-- Notification items -->
           <div class="divide-y divide-slate-50 max-h-[340px] overflow-y-auto" id="notif-list">
-
             <div class="notif-item unread" data-id="1">
               <div class="notif-icon-wrap bg-green-100">
                 <svg class="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -67,7 +63,6 @@ function renderHeader() {
               </div>
               <span class="notif-dot"></span>
             </div>
-
             <div class="notif-item unread" data-id="2">
               <div class="notif-icon-wrap bg-blue-100">
                 <svg class="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
@@ -79,7 +74,6 @@ function renderHeader() {
               </div>
               <span class="notif-dot"></span>
             </div>
-
             <div class="notif-item unread" data-id="3">
               <div class="notif-icon-wrap bg-amber-100">
                 <svg class="w-4 h-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -91,7 +85,6 @@ function renderHeader() {
               </div>
               <span class="notif-dot"></span>
             </div>
-
             <div class="notif-item" data-id="4">
               <div class="notif-icon-wrap bg-slate-100">
                 <svg class="w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -102,71 +95,13 @@ function renderHeader() {
                 <p class="text-[11px] text-slate-400 mt-1">Yesterday</p>
               </div>
             </div>
-
           </div>
 
-          <!-- Footer -->
           <div class="px-4 py-2.5 border-t border-slate-100 text-center">
             <button class="text-[12px] text-green-600 font-medium hover:text-green-700 transition-colors" onclick="CL.closeNotifMenu(); CL.navigate('notifications')">
               View all notifications
             </button>
           </div>
-
-        </div>
-      </div>
-
-      <!-- User dropdown -->
-      <div class="relative flex-shrink-0" id="user-menu-wrap">
-        <button class="flex items-center gap-2.5 rounded-lg hover:bg-slate-50 px-2 py-1 transition-colors flex-shrink-0" onclick="CL.toggleUserMenu(event)">
-          <img src="${CL.data.currentUser.avatar}" alt=""
-            class="w-7 h-7 min-w-[28px] rounded-full object-cover ring-2 ring-green-200 flex-shrink-0">
-          <span class="hidden sm:block text-left">
-            <span class="block text-[13px] font-semibold text-slate-800 leading-tight" id="hdr-name">Juniel Cardenas</span>
-            <span class="block text-[11px] text-green-600 font-medium" id="hdr-role">Job Seeker</span>
-          </span>
-          <svg class="w-3.5 h-3.5 text-slate-400 hidden sm:block transition-transform duration-200" id="user-menu-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <!-- Dropdown panel -->
-        <div id="user-menu-dropdown"
-          class="absolute right-0 mt-2 w-56 rounded-xl bg-white shadow-lg ring-1 ring-slate-200 overflow-hidden z-50"
-          style="display:none; opacity:0; transform:translateY(-6px); transition: opacity 0.18s ease, transform 0.18s ease;">
-
-          <!-- User info header -->
-          <div class="px-4 py-3 border-b border-slate-100 flex items-center gap-3">
-            <img src="${CL.data.currentUser.avatar}" alt="" class="w-9 h-9 min-w-[36px] rounded-full object-cover ring-2 ring-green-200">
-            <div class="overflow-hidden">
-              <p class="text-[13px] font-semibold text-slate-800 truncate">Juniel Cardenas</p>
-              <p class="text-[11px] text-green-600 font-medium">Job Seeker</p>
-            </div>
-          </div>
-
-          <!-- Menu items -->
-          <div class="py-1.5">
-            <button class="user-menu-item" onclick="CL.closeUserMenu(); CL.navigate('profile')">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
-              My Profile
-            </button>
-            <button class="user-menu-item" onclick="CL.closeUserMenu(); CL.navigate('settings')">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              Settings
-            </button>
-            <button class="user-menu-item" onclick="CL.closeUserMenu(); CL.navigate('resume')">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
-              Resume Builder
-            </button>
-          </div>
-
-          <!-- Logout -->
-          <div class="border-t border-slate-100 py-1.5">
-            <button class="user-menu-item text-red-500 hover:bg-red-50" onclick="CL.closeUserMenu(); CL.toast('Logged out')">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"/></svg>
-              Log Out
-            </button>
-          </div>
-
         </div>
       </div>
     </div>
@@ -223,15 +158,81 @@ function renderSidebar() {
       ${navLink('emp-settings',   'cog',            'Settings')}
     </div>
 
-    <!-- Bottom user chip -->
-    <div class="mt-auto pt-3 border-t border-slate-100">
-      <div class="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-colors" onclick="CL.navigate('profile')">
-        <img src="${CL.data.currentUser.avatar}" alt="" class="w-7 h-7 min-w-[28px] rounded-full object-cover flex-shrink-0">
-        <div class="nav-label overflow-hidden">
-          <p class="text-[13px] font-semibold text-slate-800 truncate leading-tight" id="sidebar-name">Juniel Cardenas</p>
-          <p class="text-[11px] text-green-600">Job Seeker</p>
+    <!-- Bottom user profile with popup -->
+    <div class="mt-auto pt-3 border-t border-slate-100 relative" id="sidebar-user-wrap">
+
+      <!-- Upward popup menu -->
+      <div id="sidebar-user-menu"
+        class="absolute bottom-full left-0 right-0 mb-2 rounded-xl bg-white shadow-xl ring-1 ring-slate-200 overflow-hidden z-50"
+        style="display:none; opacity:0; transform:translateY(6px); transition: opacity 0.18s ease, transform 0.18s ease;">
+
+        <!-- Profile card header -->
+        <div class="px-4 pt-4 pb-3 bg-gradient-to-br from-green-50 to-white border-b border-slate-100">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="relative flex-shrink-0">
+              <img src="${CL.data.currentUser.avatar}" alt="" class="w-10 h-10 rounded-xl object-cover ring-2 ring-green-200">
+              <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></span>
+            </div>
+            <div class="overflow-hidden flex-1">
+              <p class="text-[13px] font-bold text-slate-900 truncate leading-tight" id="sidebar-popup-name">${CL.data.currentUser.name}</p>
+              <p class="text-[11px] text-slate-500 truncate">${CL.data.currentUser.email}</p>
+            </div>
+          </div>
+          <span class="text-[11px] font-semibold text-green-700 bg-green-100 rounded-full px-2.5 py-0.5 inline-flex items-center gap-1" id="sidebar-popup-role">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-500 inline-block"></span>
+            Job Seeker
+          </span>
         </div>
+
+        <!-- Profile completion -->
+        <div class="px-4 py-3 border-b border-slate-100">
+          <div class="flex items-center justify-between mb-1.5">
+            <p class="text-[11px] font-semibold text-slate-500">Profile Completeness</p>
+            <p class="text-[11px] font-bold text-green-600">${CL.data.currentUser.completion}%</p>
+          </div>
+          <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-green-400 to-green-600 rounded-full" style="width:${CL.data.currentUser.completion}%"></div>
+          </div>
+          <p class="text-[10px] text-slate-400 mt-1">Add experience & skills to reach 100%</p>
+        </div>
+
+        <!-- Open to Work toggle (job seeker only) -->
+        <div class="px-4 py-3 border-b border-slate-100 flex items-center justify-between" data-role="jobseeker">
+          <div>
+            <p class="text-[12px] font-semibold text-slate-700">Open to Work</p>
+            <p class="text-[10px] text-slate-400">Visible to recruiters</p>
+          </div>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" class="sr-only peer" checked
+              onchange="CL.toast(this.checked ? 'Now visible to recruiters' : 'Hidden from recruiters')">
+            <div class="w-8 h-4 bg-slate-200 rounded-full peer peer-checked:bg-green-500 transition-colors"></div>
+            <div class="absolute left-0.5 top-0.5 w-3 h-3 bg-white rounded-full shadow transition-transform peer-checked:translate-x-4"></div>
+          </label>
+        </div>
+
+        <!-- Log out -->
+        <div class="p-2">
+          <button class="user-menu-item rounded-lg text-red-500 hover:bg-red-50 w-full" onclick="CL.closeSidebarUserMenu(); CL.toast('Logged out')">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"/></svg>
+            Log Out
+          </button>
+        </div>
+
       </div>
+
+      <!-- Trigger chip -->
+      <button class="w-full flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-colors group"
+        onclick="CL.toggleSidebarUserMenu(event)">
+        <img src="${CL.data.currentUser.avatar}" alt="" class="w-7 h-7 min-w-[28px] rounded-full object-cover ring-2 ring-green-200 flex-shrink-0">
+        <div class="nav-label overflow-hidden text-left flex-1">
+          <p class="text-[13px] font-semibold text-slate-800 truncate leading-tight" id="sidebar-name">${CL.data.currentUser.name}</p>
+          <p class="text-[11px] text-green-600 font-medium" id="sidebar-role">Job Seeker</p>
+        </div>
+        <svg id="sidebar-user-chevron" class="nav-label w-3.5 h-3.5 text-slate-400 flex-shrink-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+
     </div>
 
   </div>`;
@@ -244,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Inject styles
   const style = document.createElement('style');
   style.textContent = `
-    /* ── User menu ── */
+    /* ── User menu items (sidebar popup) ── */
     .user-menu-item {
       display: flex; align-items: center; gap: 10px;
       width: 100%; padding: 8px 16px;
@@ -254,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     .user-menu-item:hover { background: #f8fafc; }
     .user-menu-item.text-red-500 { color: #ef4444; }
-    #user-menu-dropdown.open { opacity: 1 !important; transform: translateY(0) !important; }
+    #sidebar-user-menu.open { opacity: 1 !important; transform: translateY(0) !important; }
 
     /* ── Notification header dropdown ── */
     .notif-item {
@@ -323,10 +324,6 @@ document.addEventListener('DOMContentLoaded', () => {
         right: 8px !important; top: 60px !important; left: 8px !important;
         width: auto !important; max-width: 100% !important;
       }
-      #user-menu-dropdown {
-        position: fixed !important;
-        right: 8px !important; top: 60px !important;
-      }
       /* Tighten role toggle on mobile */
       .role-opt { padding: 5px 10px !important; font-size: 11px !important; gap: 3px !important; }
     }
@@ -356,39 +353,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close dropdowns when clicking outside
   document.addEventListener('click', (e) => {
-    const userWrap  = document.getElementById('user-menu-wrap');
-    const notifWrap = document.getElementById('notif-menu-wrap');
-    if (userWrap  && !userWrap.contains(e.target))  CL.closeUserMenu();
-    if (notifWrap && !notifWrap.contains(e.target)) CL.closeNotifMenu();
+    const sidebarUserWrap = document.getElementById('sidebar-user-wrap');
+    const notifWrap       = document.getElementById('notif-menu-wrap');
+    if (sidebarUserWrap && !sidebarUserWrap.contains(e.target)) CL.closeSidebarUserMenu();
+    if (notifWrap       && !notifWrap.contains(e.target))       CL.closeNotifMenu();
   });
 });
 
-/* ── User Menu ───────────────────────────────────── */
-CL.toggleUserMenu = function(e) {
+/* ── Sidebar User Menu ───────────────────────────── */
+CL.toggleSidebarUserMenu = function(e) {
   e.stopPropagation();
-  const dropdown = document.getElementById('user-menu-dropdown');
-  const chevron  = document.getElementById('user-menu-chevron');
-  if (!dropdown) return;
-
-  const isOpen = dropdown.classList.contains('open');
+  const menu    = document.getElementById('sidebar-user-menu');
+  const chevron = document.getElementById('sidebar-user-chevron');
+  if (!menu) return;
+  const isOpen = menu.classList.contains('open');
   if (isOpen) {
-    CL.closeUserMenu();
+    CL.closeSidebarUserMenu();
   } else {
-    dropdown.style.display = 'block';
+    menu.style.display = 'block';
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => dropdown.classList.add('open'));
+      requestAnimationFrame(() => menu.classList.add('open'));
     });
     if (chevron) chevron.style.transform = 'rotate(180deg)';
   }
 };
 
-CL.closeUserMenu = function() {
-  const dropdown = document.getElementById('user-menu-dropdown');
-  const chevron  = document.getElementById('user-menu-chevron');
-  if (!dropdown) return;
-  dropdown.classList.remove('open');
+CL.closeSidebarUserMenu = function() {
+  const menu    = document.getElementById('sidebar-user-menu');
+  const chevron = document.getElementById('sidebar-user-chevron');
+  if (!menu) return;
+  menu.classList.remove('open');
   if (chevron) chevron.style.transform = 'rotate(0deg)';
-  setTimeout(() => { dropdown.style.display = 'none'; }, 180);
+  setTimeout(() => { menu.style.display = 'none'; }, 180);
 };
 
 /* ── Notification Menu ───────────────────────────── */
@@ -396,7 +392,7 @@ CL.toggleNotifMenu = function(e) {
   e.stopPropagation();
   const dropdown = document.getElementById('notif-menu-dropdown');
   if (!dropdown) return;
-  CL.closeUserMenu();
+  CL.closeSidebarUserMenu();
   const isOpen = dropdown.classList.contains('open');
   if (isOpen) {
     CL.closeNotifMenu();

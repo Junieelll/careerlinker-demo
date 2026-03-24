@@ -16,7 +16,7 @@ CL.pages['emp-dashboard'] = {
 
       <!-- Header -->
       <div class="flex items-center justify-between mb-8">
-        <div>
+        <div class="max-w-[50%]">
           <h1 class="page-title mb-1">Dashboard</h1>
           <p class="muted">Welcome back, ${co.name}</p>
         </div>

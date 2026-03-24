@@ -134,7 +134,7 @@ window.CL.data = {
   ],
 
   empMessages: [
-    { id:0, from:'Juniel Santos',    avatar:'https://i.pravatar.cc/150?img=47', role:'Senior Frontend Dev', last:'Thursday 2 PM works!', time:'10:30 AM', unread:1, chat:[
+    { id:0, from:'Juniel Cardenas',    avatar:'./pfp.jfif', role:'Senior Frontend Dev', last:'Thursday 2 PM works!', time:'10:30 AM', unread:1, chat:[
       { out:true,  text:'Hello Juniel! We reviewed your application and your portfolio is fantastic.',                    time:'10:00 AM' },
       { out:false, text:'Thank you so much! I\'m really excited about this opportunity.',                                 time:'10:05 AM' },
       { out:true,  text:'We\'d love to schedule a technical interview. Are you free this week?',                          time:'10:20 AM' },
